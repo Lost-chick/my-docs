@@ -13,8 +13,16 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
     />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"
+    />
   </head>
   <body>
+    <!-- <nav>
+      <a href="#/">根目录</a>
+      <a href="#/js/">js原生</a>
+    </nav> -->
     <div id="app"></div>
     <script>
       window.$docsify = {
@@ -23,14 +31,42 @@
         loadSidebar: true,
         ubMaxLevel: 2,
         search: "auto",
-        alias: {
-          "/.*/_sidebar.md": "/_sidebar.md",
+        subMaxLevel: 2,
+        loadNavbar: true, // nav
+        count: {
+          countable: true,
+          fontsize: "0.9em",
+          color: "rgb(90,90,90)",
+          language: "chinese",
         },
+        // themeColor: '#3F51B5',
+        // alias: {
+        //   "/.*/_sidebar.md": "/_sidebar.md",
+        // },
       };
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+    <script>
+      const gitalk = new Gitalk({
+        clientID: "Github Application Client ID",
+        clientSecret: "Github Application Client Secret",
+        repo: "Github repo",
+        owner: "Github repo owner",
+        admin: [
+          "Github repo collaborators, only these guys can initialize github issues",
+        ],
+        // facebook-like distraction free mode
+        distractionFreeMode: false,
+      });
+    </script>
   </body>
 </html>
